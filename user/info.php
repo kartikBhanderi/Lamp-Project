@@ -58,10 +58,10 @@
 
         <div class="c1">
             <form action="" method="post">
-                <a href = "" class="btn btn-outline-info btn-block">Personal Information</a><hr class="c3">
+                <a href = "./pinfo.php" class="btn btn-outline-info btn-block">Personal Information</a><hr class="c3">
                 <a href = "./ainfo.php" class="btn btn-outline-info btn-block">Account Information</a><hr class="c3">
-                <a href = "/user/changepwd" class="btn btn-outline-info btn-block">Change Password</a><hr class="c3">
-                <a href = "/user/updateinfo"  class="btn btn-outline-info btn-block"> Update Personal Information </a><hr class="c3">
+                <a href = "./changePwd.php" class="btn btn-outline-info btn-block">Change Password</a><hr class="c3">
+                <a href = "./updateInfo.php"  class="btn btn-outline-info btn-block"> Update Personal Information </a><hr class="c3">
                 
                 <button type="submit" name="submit" class="btn btn-outline-danger btn-block"> Log Out</button>
             </form>

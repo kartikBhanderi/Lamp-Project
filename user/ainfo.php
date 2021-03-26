@@ -1,15 +1,47 @@
 <?php
     session_start();
 
+    include('../includes/connection.php');
+
+    
     $fn =  $_SESSION['First_name'];
     $ln = $_SESSION['Last_name'];
-    $dob = $_SESSION['Date_of_birth'];
-    $gender = $_SESSION['Gender'];
     $pwd = $_SESSION['Password'];
-    $addr = $_SESSION['Address'];
     $bc = $_SESSION['Branch_Code'];
     $accNo = $_SESSION['Acc_no'];
-    $aadhar = $_SESSION['Aadhar'];
+
+    $query = "SELECT * from account WHERE Acc_no='$accNo' ";
+    $result = mysqli_query($con,$query);
+
+    if(mysqli_num_rows($result)>0)
+    {
+        $result = mysqli_fetch_assoc($result);
+        
+        $_SESSION['Balance'] = $result['Balance'];
+        $_SESSION['Acc_type'] = $result['Acc_type'];
+        $_SESSION['Interest'] = $result['Interest'];
+    } 
+    else 
+    {
+        echo "<script>alert('Unable to fetch details');</script>";
+    }
+
+    $query = "SELECT * from branch WHERE Branch_code='$bc' ";
+    $result = mysqli_query($con,$query);
+
+    if(mysqli_num_rows($result)>0)
+    {
+        $result = mysqli_fetch_assoc($result);
+        
+        $_SESSION['bName'] = $result['Name'];
+        $_SESSION['bAddress'] = $result['Branch_Address'];
+        $_SESSION['bCity'] = $result['City'];
+    } 
+    else 
+    {
+        echo "<script>alert('Unable to fetch details');</script>";
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +67,6 @@
             box-shadow: 0 8px 20px 0 rgba(255,255,255,0.2);
             text-align: center;
         }
-        body
-        {
-            height: 100%;   
-            background-color: green;
-        }
         .c2
         {
             color: whitesmoke;
@@ -52,6 +79,11 @@
         {
             height: 1px;
             background-color: white;
+        }
+        
+        body
+        {
+            background-color: green
         }
         .c4
         {
@@ -73,13 +105,13 @@
 
             <div> User Name: <?php echo $fn." ".$ln ?> </div>
             <div> Account No : <?php echo $accNo ?> </div>
-            <div> Balance : <?php echo $accNo ?> </div>
-            <div> Account Type : <?php echo $accNo ?> </div>
-            <div> rate of Interest : <?php echo $accNo ?> </div>
-            <div> Branch Name : <?php echo $accNo ?> </div>
-            <div> Branch code : <?php echo $accNo ?> </div>
-            <div> Branch Address : <?php echo $accNo ?> </div>
-            <div> Branch City : <?php echo $accNo ?> </div>
+            <div> Balance : <?php echo $_SESSION['Balance'] ?> </div>
+            <div> Account Type : <?php echo $_SESSION['Acc_type'] ?> </div>
+            <div> Rate of Interest : <?php echo $_SESSION['Interest'] ?> </div>
+            <div> Branch Name : <?php echo $_SESSION['bName'] ?> </div>
+            <div> Branch code :  <?php echo $bc ?> </div>
+            <div> Branch Address :  <?php echo $_SESSION['bAddress'] ?> </div>
+            <div> Branch City :  <?php echo $_SESSION['bCity'] ?> </div>
             
         </div>
         
