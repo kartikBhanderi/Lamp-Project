@@ -12,7 +12,7 @@
         <style>
             .c1
             {
-                background-color: rgba(0,0,0,0.5) !important;
+                background-color: rgba(0,0,0,0.7) !important;
                 backface-visibility: hidden;
                 border-radius: 9px;
                 color: white;
@@ -20,7 +20,7 @@
                 margin-top: 90px;
                 width: 34%;
                 height: 50%;
-                padding: 10px;
+                padding: 15px;
                 box-shadow: 0 10px 14px 0 rgba(255,255,255,0.2);
             }
             body{

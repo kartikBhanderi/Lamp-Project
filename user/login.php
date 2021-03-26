@@ -26,7 +26,7 @@
         <style>
             .c1
             {
-                background-color: rgba(0,0,0,0.5) !important;
+                background-color: rgba(0,0,0,0.6) !important;
                 backface-visibility: hidden;
                 border-radius: 9px;
                 color: white;
@@ -34,7 +34,7 @@
                 margin-top: 15%;
                 width: 20%;
                 height: 40%;
-                padding: 10px;
+                padding: 15px;
                 box-shadow: 0 8px 8px 0 rgba(255,255,255,0.2);
                 text-align: center;
             }
@@ -77,7 +77,7 @@
                 <input type="password" id="pwd" name="pwd" placeholder="Password" required>
 
                 <hr>
-                <button type="submit" name="submit" class="btn btn-success btn-lg">Login</button>
+                <button type="submit" name="submit" class="btn btn-success btn-block">Login</button>
             </form>
         </div>
     </body>

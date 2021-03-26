@@ -8,7 +8,21 @@ body
     background-position: center;
 }
 
-bodyTemp
+table
 {
-    background-color: green
+    table-layout: auto;
+    width: 100%;
+    padding: 100px;
 }
+
+th, td
+{
+    width: 50%;
+    color: white;
+    padding: 10px;
+    padding-left: 40px;
+    text-align: left;
+}
+
+tr:nth-child(even) {background-color: grey;}
+tr:hover {background-color: rgba(63, 129, 102, 0.6);}

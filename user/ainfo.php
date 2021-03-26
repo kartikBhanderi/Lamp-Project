@@ -52,18 +52,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
     <style>
         .c1
         {
-            background-color: rgba(0,0,0,0.1) !important;
+            background-color: rgba(0,0,0,0.7) !important;
             backface-visibility: hidden;
             border-radius: 9px;
             color: white;
             margin-left: 15%;
-            margin-top: 60px;
+            margin-top: 80px;
             width: 70%;
-            height: 500px;
-            padding: 10px;
+            /* height: 500px; */
+            padding: 15px;
             box-shadow: 0 8px 20px 0 rgba(255,255,255,0.2);
             text-align: center;
         }
@@ -81,10 +82,6 @@
             background-color: white;
         }
         
-        body
-        {
-            background-color: green
-        }
         .c4
         {
             font-size: 20px;
@@ -98,12 +95,12 @@
     </style>
 </head>
 <body>
-    <div class="c1">
+    <!-- <div class="c1">
         <div class="c2"> Account Information</div>
         <hr class="c3">
         <div class="c4">
 
-            <div> User Name: <?php echo $fn." ".$ln ?> </div>
+            <div> User Name : <?php echo $fn." ".$ln ?> </div>
             <div> Account No : <?php echo $accNo ?> </div>
             <div> Balance : <?php echo $_SESSION['Balance'] ?> </div>
             <div> Account Type : <?php echo $_SESSION['Acc_type'] ?> </div>
@@ -113,8 +110,47 @@
             <div> Branch Address :  <?php echo $_SESSION['bAddress'] ?> </div>
             <div> Branch City :  <?php echo $_SESSION['bCity'] ?> </div>
             
+            
         </div>
-        
+    </div> -->
+
+
+    <div class="c1">
+    <div class="c2"> Account Information</div>
+        <table>
+            <tr>
+                <td>User Name</td>
+                <td><?php echo $fn." ".$ln ?></td>
+            </tr>
+            <tr>
+                <td>Account No</td>
+                <td><?php echo $accNo ?></td>
+            </tr>
+            <tr>
+                <td>Balance</td>
+                <td><?php echo $_SESSION['Balance'] ?></td>
+            </tr>
+            <tr>
+                <td>Account Type</td>
+                <td><?php echo $_SESSION['Acc_type'] ?></td>
+            </tr>
+            <tr>
+                <td> Branch Name  </td>
+                <td><?php echo $_SESSION['bName'] ?></td>
+            </tr>
+            <tr>
+                <td>Branch code </td>
+                <td><?php echo $bc ?></td>
+            </tr>
+            <tr>
+                <td>Branch Address </td>
+                <td> <?php echo $_SESSION['bAddress'] ?></td>
+            </tr>
+            <tr>
+                <td> Branch City </td>
+                <td><?php echo $_SESSION['bCity'] ?></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
