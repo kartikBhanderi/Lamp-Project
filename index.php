@@ -6,6 +6,7 @@
 
 <html>
     <head>
+        <link rel="stylesheet" href="./styles.css">
         <title>
             index.php
         </title>
@@ -22,15 +23,6 @@
                 height: 50%;
                 padding: 15px;
                 box-shadow: 0 10px 14px 0 rgba(255,255,255,0.2);
-            }
-            body{
-                background-image: url("https://i.ibb.co/Y0RXsnm/finalbg.jpg") ;
-                height: 100%;
-                background-repeat: no-repeat;
-                background-size: cover;
-                overflow: hidden;
-                background-position: center;
-                
             }
             .c2
             {
@@ -61,9 +53,9 @@
         </div>
         <div class="c1">
             <h2>Sign In As</h2><hr class="c3"><hr>
-            <a href="./user/login.php" class="btn btn-success btn-block">User</a><br>
-            <a href="/employee/login" class="btn btn-success btn-block">Employee</a><br>
-            <a href="/manager/login" class="btn btn-success btn-block">Manager</a><hr><hr class="c3">
+            <a href="./user/login.php" class="btn btn-success btn-block">Customer</a><br>
+            <a href="./employee/login.php" class="btn btn-success btn-block">Employee</a><br>
+            <a href="./manager/login.php" class="btn btn-success btn-block">Manager</a><hr><hr class="c3">
             <a href="/user/signup" class="btn btn-info btn-block"> Don't have an account ?   signUp </a>
         </div>
     </body>

@@ -22,7 +22,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    
+        <link rel="stylesheet" href="../styles.css">
         <style>
             .c1
             {
@@ -37,15 +37,6 @@
                 padding: 15px;
                 box-shadow: 0 8px 8px 0 rgba(255,255,255,0.2);
                 text-align: center;
-            }
-            body
-            {
-                background-image: url("https://i.ibb.co/Y0RXsnm/finalbg.jpg") ;
-                height: 100%;
-                background-repeat: no-repeat;
-                background-size: cover;
-                overflow: hidden;
-                background-position: center;
             }
             
             input
@@ -93,9 +84,13 @@
 
             $result = mysqli_query($con,$query);
 
+            // print_r($result);
+            
             if(mysqli_num_rows($result)>0)
             {
                 $result = mysqli_fetch_assoc($result);
+                // echo "<br>";
+                // print_r($result);
                 
                 $_SESSION['First_name'] = $result['First_name'];
                 $_SESSION['Last_name'] = $result['Last_name'];

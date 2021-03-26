@@ -23,7 +23,7 @@
                 border-radius: 9px;
                 color: white;
                 margin-left: 32%;
-                margin-top: 7%;
+                margin-top: 4%;
                 width: 36%;
                 height: 45%;
                 padding: 15px;
@@ -60,6 +60,7 @@
             <form action="" method="post">
                 <a href = "./pinfo.php" class="btn btn-outline-info btn-block">Personal Information</a><hr class="c3">
                 <a href = "./ainfo.php" class="btn btn-outline-info btn-block">Account Information</a><hr class="c3">
+                <a href = "./statement.php" class="btn btn-outline-info btn-block">Mini Statement</a><hr class="c3">
                 <a href = "./changePwd.php" class="btn btn-outline-info btn-block">Change Password</a><hr class="c3">
                 <a href = "./updateInfo.php"  class="btn btn-outline-info btn-block"> Update Personal Information </a><hr class="c3">
                 

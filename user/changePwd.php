@@ -74,9 +74,9 @@
             {
                 $newPwd = $_POST['pwd'];
 
-                if(empty($newPwd) || strlen($newPwd) < 4)
+                if(empty($newPwd))
                 {
-                    echo "<script> alert('Length of password should be atleast 4'); </script>";
+                    echo "<script> alert('Password should not be empty'); </script>";
                 }
                 else
                 {
