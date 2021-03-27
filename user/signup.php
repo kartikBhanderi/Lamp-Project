@@ -22,6 +22,7 @@
     }
 
     $fname=$lname=$addr=$gender=$dob=$acctype=$branch=$interest="";    
+    $pwd=$adhr="";
 
     if(isset($_POST['signup'])){
         $fname = $_POST['fname'];
@@ -65,7 +66,7 @@
             $addr="";
         }
         else if(!preg_match("/^[a-zA-Z0-9' ]*$/",$addr)){
-            echo "<script>alert('First Name must only contain Alphabets, Numbers and whitespaces!');</script>";
+            echo "<script>alert('Address must only contain Alphabets, Numbers and whitespaces!');</script>";
             $valid = false;
             $addr="";
         }
@@ -135,28 +136,43 @@
 
         if($valid == true){
             $query = "INSERT INTO customer (First_name, Last_name, Date_of_birth, Gender, Password, Address, Branch_Code, Aadhar) VALUES ('$fname','$lname','$dob','$gender','$pwd','$addr','$branch','$adhr')";
-            
             $result = mysqli_query($con,$query);
-
 
             if($result)
             {   
-                if($acctype=="Saving") $interest=5;
-                else if($acctype=="Current") $interest=3.5;
-                else if($acctype=="Fix") $interest=7;
+                $query = "SELECT * FROM customer WHERE Aadhar='$adhr'";
+                $result = mysqli_query($con , $query);
+                $accNo = "";
 
-                $query = "INSERT INTO account( Acc_type, Interest) VALUES ('$acctype','$interest')";
-                $result = mysqli_query($con,$query);
-                if($result){
-                    echo "<script>alert('Signup Complete Now you will be taken to login page Login there to continue!');</script>";
-                    echo "<script> location.href = './login.php' </script>";
+                if(mysqli_num_rows($result)>0)
+                {
+                    $result = mysqli_fetch_assoc($result);
+                    $accNo = $result['Acc_no'];
 
+                    if($acctype=="Saving") $interest=5;
+                    else if($acctype=="Current") $interest=3.5;
+                    else if($acctype=="Fix") $interest=7;
+
+                    $query = "INSERT INTO account( Acc_no, Acc_type, Interest) VALUES ('$accNo', '$acctype','$interest')";
+                    $result = mysqli_query($con,$query);
+
+                    if($result)
+                    {
+                        echo "<script>alert('Signup Complete ! You Account Number is : $accNo, Login to continue...')</script>";
+                        echo "<script> location.href = './login.php' </script>";
+                    }
+                    else
+                    {
+                        echo "<script> alert('Something went wrong ):'); </script>";
+                    } 
                 }
-                else{
-                    echo "<script>alert('Error in inserting account');</script>";
-                }
+                else
+                {
+                    echo "<script> alert('Something went wrong ):'); </script>";
+                } 
             }
-            else{
+            else
+            {
                 echo "<script>alert('Error in inserting');</script>";
             }
         }
@@ -199,10 +215,10 @@
                 border-radius: 9px;
                 color: white;
                 margin-left: 35%;
-                margin-top: 8%;
+                margin-top: 5%;
                 width: 30%;
-                height: 40%;
-                padding: 10px;
+                /* height: 40%; */
+                padding: 15px;
                 box-shadow: 0 8px 8px 0 rgba(255,255,255,0.2);
             }
             body{
