@@ -56,7 +56,7 @@
             <a href="./user/login.php" class="btn btn-success btn-block">Customer</a><br>
             <a href="./employee/login.php" class="btn btn-success btn-block">Employee</a><br>
             <a href="./manager/login.php" class="btn btn-success btn-block">Manager</a><hr><hr class="c3">
-            <a href="/user/signup" class="btn btn-info btn-block"> Don't have an account ?   signUp </a>
+            <a href="./user/signup.php" class="btn btn-info btn-block"> Don't have an account ?   signUp </a>
         </div>
     </body>
 </html>
