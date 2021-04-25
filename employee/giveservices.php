@@ -121,8 +121,22 @@ include('../includes/connection.php');
                 } else {
                     $query1 = "UPDATE `account` SET `Balance` = '$new_ammount' WHERE `Acc_no` = '$accno'";
                     $result2 = mysqli_query($con, $query1);
-                    echo "<script> alert('balance changed from {$curr_ammount} to {$new_ammount}'); </script>";
-                    echo "<script> location.href = './eaccess.php' </script>";
+                    $date=date("d/m/y");
+                    if($selection=="1"){
+                        $query2 = "INSERT INTO `transaction`(`Acc_no`, `Type`, `Amt`, `Date`, `Closing_bal`) VALUES ('$accno','Credit','$amount','$date','$new_ammount')";
+                    }
+                    else{
+                        $query2 = "INSERT INTO `transaction`(`Acc_no`, `Type`, `Amt`, `Date`, `Closing_bal`) VALUES ('$accno','Debit','$amount','$date','$new_ammount')";   
+                    }
+                    $result = mysqli_query($con,$query2);
+                    if($result){
+                        echo "<script> alert('balance changed from {$curr_ammount} to {$new_ammount}'); </script>";
+                        echo "<script> location.href = './eaccess.php' </script>";    
+                    }
+                    else{
+                        echo "<script> alert('Error in transaction !'); </script>";        
+                    }
+                    
                 }
             } else {
                 echo "<script> alert('Account details not found !'); </script>";
