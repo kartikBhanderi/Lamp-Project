@@ -24,8 +24,8 @@ if (isset($_POST['search'])) {
         $lname = "";
         $valid = false;
     }
-    if (!empty($gender) && !preg_match("/^[FMfm]$/", $gender)) {
-        echo "<script> alert('Gender should only consist of single letter either F or M'); </script>";
+    if (!empty($gender) && !($gender=='male' || $gender=='female' || $gender=="Male" || $gender=="Female")) {
+        echo "<script> alert('Gender should only consist of single word either Female,female,male or Male'); </script>";
         $gender = "";
         $valid = false;
     }

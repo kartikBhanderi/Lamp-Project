@@ -74,8 +74,14 @@ if (!isset($_SESSION['Emp_result'])) {
             /* box-shadow: 0 8px 16px 0 rgba(0,125,0,0.4); */
         }
 
+        html
+        {
+            height: 100%;
+            width: 100%;
+        }
+        
         body {
-            /*background-image: url("https://i.ibb.co/Y0RXsnm/finalbg.jpg") ;*/
+            background-image: url("https://i.ibb.co/Y0RXsnm/finalbg.jpg") ;
             height: 100%;
             background-repeat: no-repeat;
             background-size: cover;
